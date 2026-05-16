@@ -1,0 +1,29 @@
+{
+    "name": "thelatinbros.com",
+    "type": "module",
+    "version": "1.0.0",
+    "description": "Portfolio and online directory for 'The Latin Bros'.",
+    "homepage": "https://thelatinbros.com",
+    "main": "index.js",
+    "scripts": {
+        "dev": "./rm-build.sh && eleventy --serve",
+        "build": "./rm-build.sh && eleventy && npm run minify:css",
+        "serve": "python3 -m http.server 8081 --directory docs",
+        "minify:css": "postcss docs/css/main.css -o docs/css/main.css",
+        "format": "npx prettier . --write"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/saturnoluis/thelatinbros.com.git"
+    },
+    "license": "All rights reserved",
+    "author": "Luis Saturno",
+    "devDependencies": {
+        "@11ty/eleventy": "^3.1.2",
+        "cssnano": "^7.1.9",
+        "markdown-it": "^14.1.0",
+        "markdown-it-attrs": "^4.3.1",
+        "postcss": "^8.5.14",
+        "postcss-cli": "^11.0.1"
+    }
+}

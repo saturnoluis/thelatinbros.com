@@ -1,0 +1,177 @@
+/* ========================================
+   CSS Reset & Base Styles (extracted from Pico.css)
+   ======================================== */
+
+/* Box-sizing reset for all elements */
+*,
+::after,
+::before {
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+}
+
+::after,
+::before {
+    text-decoration: inherit;
+    vertical-align: inherit;
+}
+
+/* Text selection color */
+::-moz-selection {
+    background-color: rgba(60, 60, 60, 0.2);
+}
+
+::selection {
+    background-color: rgba(60, 60, 60, 0.2);
+}
+
+/* ========================================
+   CSS Variables & Base Elements
+   ======================================== */
+
+html {
+    --page-width: 120rem;
+    --font-size-base: 9px;
+    --font-family-heading: sans-serif;
+    --font-family-base: sans-serif;
+    --background-color: #ffffff;
+    --backdrop-color: rgba(255, 255, 255, 0.9);
+    --backdrop-blur: 0.2rem;
+    --border-color: #3c3c3c;
+    --text-color-primary: #3c3c3c;
+    --text-color-primary--light: #5c5c5c;
+    --text-color-primary--lighter: #7c7c7c;
+    --text-color-secondary: #98979a;
+    --text-color-secondary--light: #b8b7b9;
+    --text-color-secondary--lighter: #d8d7d8;
+    --image-border-radius: 0rem;
+
+    font-size: var(--font-size-base);
+    font-family: var(--font-family-base);
+    background-color: var(--background-color);
+}
+
+body {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    min-height: 100dvh;
+    scroll-padding-top: 4rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-family-heading);
+    font-size: calc(var(--font-size-base) * 3);
+    font-weight: 400;
+    line-height: 0.9;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: calc(var(--font-size-base) * 8);
+}
+h2 {
+    font-size: calc(var(--font-size-base) * 5);
+}
+h3 {
+    font-size: calc(var(--font-size-base) * 3);
+}
+h4,
+h5,
+h6 {
+    font-size: calc(var(--font-size-base) * 1);
+}
+
+p {
+    line-height: 1;
+}
+
+/* Base styles for links */
+a {
+    outline: 0;
+    text-decoration: none;
+    text-underline-offset: 0.125em;
+    transition:
+        background-color 0.2s ease-in-out,
+        color 0.2s ease-in-out,
+        text-decoration 0.2s ease-in-out;
+}
+
+/* Base styles for buttons */
+button {
+    margin: 0;
+    overflow: visible;
+    font-family: inherit;
+    text-transform: none;
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding: 0;
+    outline: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+/* Base styles for lists in navigation */
+nav ul {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li {
+    display: inline-block;
+    margin: 0;
+}
+
+/* Base styles for images */
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Base styles for video */
+video {
+    display: block;
+    max-width: 100%;
+}
+
+/* Base styles for main */
+main {
+    display: block;
+}
+
+/* Base styles for dialog */
+dialog {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100dvh;
+    width: 100dvw;
+    border: none;
+    padding: 0;
+    margin: 0;
+    background: var(--backdrop-color);
+}
+
+/* ========================================
+   Main Layout
+   ======================================== */
+
+.main-wrapper {
+    position: relative;
+    margin: 0 auto;
+    padding: 0 4rem;
+    max-width: var(--page-width);
+}
+
