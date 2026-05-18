@@ -30,25 +30,31 @@
    ======================================== */
 
 html {
-    --page-width: 120rem;
-    --font-size-base: 9px;
-    --font-family-heading: sans-serif;
-    --font-family-base: sans-serif;
+    --page-width: 40rem;
+    --font-size-base: 16px;
+    --font-family-heading: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     --background-color: #ffffff;
     --backdrop-color: rgba(255, 255, 255, 0.9);
     --backdrop-blur: 0.2rem;
-    --border-color: #3c3c3c;
-    --text-color-primary: #3c3c3c;
-    --text-color-primary--light: #5c5c5c;
-    --text-color-primary--lighter: #7c7c7c;
-    --text-color-secondary: #98979a;
-    --text-color-secondary--light: #b8b7b9;
-    --text-color-secondary--lighter: #d8d7d8;
+    --border-color: #000000;
+    --text-color-primary: #000000;
+    --text-color-primary--light: #000000;
+    --text-color-primary--lighter: #000000;
+    --text-color-secondary: #000000;
+    --text-color-secondary--light: #000000;
+    --text-color-secondary--lighter: #000000;
     --image-border-radius: 0rem;
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
 
     font-size: var(--font-size-base);
     font-family: var(--font-family-base);
     background-color: var(--background-color);
+    color: var(--text-color-primary);
 }
 
 body {
@@ -66,30 +72,39 @@ h4,
 h5,
 h6 {
     font-family: var(--font-family-heading);
-    font-size: calc(var(--font-size-base) * 3);
-    font-weight: 400;
-    line-height: 0.9;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.2;
     margin: 0;
     padding: 0;
 }
 
 h1 {
-    font-size: calc(var(--font-size-base) * 8);
+    font-size: 2.5rem;
+    font-weight: 900;
+    line-height: 1.1;
 }
 h2 {
-    font-size: calc(var(--font-size-base) * 5);
+    font-size: 1.75rem;
+    font-weight: 800;
+    line-height: 1.2;
 }
 h3 {
-    font-size: calc(var(--font-size-base) * 3);
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.3;
 }
 h4,
 h5,
 h6 {
-    font-size: calc(var(--font-size-base) * 1);
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.4;
 }
 
 p {
-    line-height: 1;
+    line-height: 1.6;
+    margin: 0;
 }
 
 /* Base styles for links */
@@ -171,7 +186,228 @@ dialog {
 .main-wrapper {
     position: relative;
     margin: 0 auto;
-    padding: 0 4rem;
+    padding: 0 var(--spacing-md);
     max-width: var(--page-width);
+}
+
+/* ========================================
+   Home Page Styles
+   ======================================== */
+
+.home {
+    width: 100%;
+}
+
+.home__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-lg) 0;
+}
+
+.home__logo {
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto var(--spacing-md);
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    text-align: center;
+}
+
+.hero__title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+}
+
+.hero__tagline {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.hero__description {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-top: var(--spacing-sm);
+}
+
+/* Location Cards */
+.location-card {
+    border: 1px solid var(--border-color);
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.location-card__title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.location-card__hours {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.location-card__directions {
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.location-card__map-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: var(--spacing-xs);
+}
+
+/* CTA Button (for Google Maps) */
+.cta-button {
+    display: inline-block;
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: #ffffff;
+    color: var(--text-color-primary);
+    border: 1px solid var(--border-color);
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.2s ease-in-out;
+    margin-top: var(--spacing-sm);
+}
+
+.cta-button:hover {
+    background-color: var(--text-color-primary);
+    color: #ffffff;
+}
+
+/* Disclaimer Section */
+.disclaimer {
+    border: 1px solid var(--border-color);
+    padding: var(--spacing-md);
+    text-align: center;
+}
+
+.disclaimer__title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: var(--spacing-sm);
+}
+
+.disclaimer__text {
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* Food Waste Section */
+.food-waste {
+    border: 1px solid var(--border-color);
+    padding: var(--spacing-md);
+    text-align: center;
+}
+
+.food-waste__title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: var(--spacing-sm);
+}
+
+.food-waste__cta {
+    display: inline-block;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: #ffffff;
+    color: var(--text-color-primary);
+    border: 1px solid var(--border-color);
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.2s ease-in-out;
+    margin-top: var(--spacing-sm);
+}
+
+.food-waste__cta:hover {
+    background-color: var(--text-color-primary);
+    color: #ffffff;
+}
+
+/* Action Hub */
+.action-hub {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.action-button {
+    display: block;
+    width: 100%;
+    padding: var(--spacing-md);
+    background-color: #ffffff;
+    color: var(--text-color-primary);
+    border: 1px solid var(--border-color);
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.action-button:hover {
+    background-color: var(--text-color-primary);
+    color: #ffffff;
+}
+
+/* Catering Section */
+.catering {
+    border: 1px solid var(--border-color);
+    padding: var(--spacing-md);
+    text-align: center;
+}
+
+.catering__title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: var(--spacing-sm);
+}
+
+.catering__text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: var(--spacing-sm);
+}
+
+.catering__email {
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.catering__email a {
+    color: var(--text-color-primary);
+    text-decoration: underline;
+}
+
+.catering__email a:hover {
+    text-decoration: none;
 }
 
