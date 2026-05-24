@@ -30,30 +30,41 @@
    ======================================== */
 
 html {
-    --page-width: 40rem;
-    --font-size-base: 16px;
-    --font-family-heading: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	--font-size-base: 16px;
+
+	--page-width: 40rem;
+
     --background-color: #ffffff;
+	--background-gradient: linear-gradient(190deg,rgba(255, 176, 82, 1) 0%, rgba(254, 139, 114, 1) 100%);
     --backdrop-color: rgba(255, 255, 255, 0.9);
     --backdrop-blur: 0.2rem;
+
     --border-color: #000000;
+	--image-border-radius: 0rem;
+
     --text-color-primary: #000000;
     --text-color-primary--light: #000000;
     --text-color-primary--lighter: #000000;
     --text-color-secondary: #000000;
     --text-color-secondary--light: #000000;
     --text-color-secondary--lighter: #000000;
-    --image-border-radius: 0rem;
+
+	--font-family-heading: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	--font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 1.5rem;
     --spacing-lg: 2rem;
     --spacing-xl: 3rem;
 
+	--image-logo: url('../images/thelatinbros__logo.opti.webp');
+	--image-chili--corner: url('../images/thelatinbros__chili--corner.opti.webp');
+
     font-size: var(--font-size-base);
     font-family: var(--font-family-base);
-    background-color: var(--background-color);
+    background: var(--background-gradient);
+	background-attachment: fixed;
     color: var(--text-color-primary);
 }
 
@@ -186,8 +197,30 @@ dialog {
 .main-wrapper {
     position: relative;
     margin: 0 auto;
-    padding: 0 var(--spacing-md);
+    padding: var(--spacing-md);
     max-width: var(--page-width);
+	background: blue;
+}
+
+.header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.header__logo {
+	width: 27rem;
+	height: auto;
+	background:red;
+}
+
+.header__slogan {
+	font-size: 1.25rem;
+	font-weight: 800;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	text-align: center;
 }
 
 /* ========================================
@@ -203,12 +236,6 @@ dialog {
     flex-direction: column;
     gap: var(--spacing-lg);
     padding: var(--spacing-lg) 0;
-}
-
-.home__logo {
-    width: 100%;
-    max-width: 200px;
-    margin: 0 auto var(--spacing-md);
 }
 
 /* Hero Section */
