@@ -1,7 +1,7 @@
 /* ========================================
    CSS Reset & Base Styles (extracted from Pico.css)
    ======================================== */
-@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
 
 /* Box-sizing reset for all elements */
 *,
@@ -31,17 +31,21 @@
    ======================================== */
 
 html {
-	--font-size-base: 16px;
+    --font-size-base: 16px;
 
-	--page-width: 40rem;
+    --page-width: 40rem;
 
     --background-color: #ffffff;
-	--background-gradient: linear-gradient(190deg,rgba(255, 176, 82, 1) 0%, rgba(254, 139, 114, 1) 100%);
+    --background-gradient: linear-gradient(
+        190deg,
+        rgba(255, 176, 82, 1) 0%,
+        rgba(254, 139, 114, 1) 100%
+    );
     --backdrop-color: rgba(255, 255, 255, 0.9);
     --backdrop-blur: 0.2rem;
 
     --border-color: #000000;
-	--image-border-radius: 0rem;
+    --image-border-radius: 0rem;
 
     --text-color-primary: #000000;
     --text-color-primary--light: #000000;
@@ -50,8 +54,8 @@ html {
     --text-color-secondary--light: #000000;
     --text-color-secondary--lighter: #000000;
 
-	--font-family-heading: "Lilita One", sans-serif;
-	--font-family-base: "Nunito", sans-serif;
+    --font-family-heading: "Lilita One", sans-serif;
+    --font-family-base: "Nunito", sans-serif;
 
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
@@ -59,13 +63,14 @@ html {
     --spacing-lg: 2rem;
     --spacing-xl: 3rem;
 
-	--image-logo: url('../images/thelatinbros__logo.opti.webp');
-	--image-chili--corner: url('../images/thelatinbros__chili--corner.opti.webp');
+    --image-logo: url("../images/thelatinbros__logo.opti.webp");
+    --image-chili--corner: url("../images/thelatinbros__chili--corner.opti.webp");
+    --image-skeleton--corner: url("../images/thelatinbros__skeleton--corner.opti.webp");
 
     font-size: var(--font-size-base);
     font-family: var(--font-family-base);
     background: var(--background-gradient);
-	background-attachment: fixed;
+    background-attachment: fixed;
     color: var(--text-color-primary);
 }
 
@@ -197,15 +202,15 @@ dialog {
 
 .main--wrapper {
     position: relative;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	align-items: center;
-	gap: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: var(--spacing-lg);
     margin: 0 auto;
     padding: var(--spacing-md);
     max-width: var(--page-width);
-	background: blue;
+    background: blue;
 }
 
 /* ========================================
@@ -213,81 +218,128 @@ dialog {
    ======================================== */
 
 .header {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .header__logo--wrapper {
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .header__logo {
-	width: 27rem;
-	height: auto;
-	background:red;
+    width: 27rem;
+    height: auto;
+    background: red;
 }
 
 .header__slogan {
-	font-family: var(--font-family-heading);
-	font-size: 2rem;
-	line-height: 1;
-	font-weight: 800;
-	text-transform: uppercase;
-	letter-spacing: 0.05em;
-	text-align: center;
+    font-family: var(--font-family-heading);
+    font-size: 2rem;
+    line-height: 1;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-align: center;
 }
+
+.footer {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: var(--spacing-sm);
+	background-color: purple;
+}
+
+.footer--with-skeletons {
+	padding: var(--spacing-lg) 0 5rem 0;
+	min-height: 19rem;
+}
+
+.footer--with-skeletons::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: -2rem;
+    width: 9rem;
+    height: 19rem;
+    background-color: aqua;
+    background-image: var(--image-skeleton--corner);
+    background-size: contain;
+    background-repeat: no-repeat;
+	background-position: top right;
+    z-index: 100;
+}
+
+.footer--with-skeletons::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: -2rem;
+    width: 9rem;
+    height: 19rem;
+    background-color: aqua;
+    background-image: var(--image-skeleton--corner);
+    background-size: contain;
+    background-repeat: no-repeat;
+	background-position: top right;
+    z-index: 100;
+	transform: scaleX(-1);
+}
+
+
 
 /* ========================================
    Content layout & Variants
    ======================================== */
 
 .content--wrapper {
-	display: flex;
-	flex-direction: column;
-	gap: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
 }
 
 .page--with-chili {
-	position: relative;
-	padding-top: 4.20rem;
-	background: green;
+    position: relative;
+    padding-top: 4.2rem;
+    background: green;
 }
 
 .page--with-chili::before {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: -3.5rem;
-	width: 7rem;
-	height: 11rem;
-	background-color: aqua;
-	background-image: var(--image-chili--corner);
-	background-size: contain;
-	background-repeat: no-repeat;
-	z-index: 100;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -2rem;
+    width: 7rem;
+    height: 11rem;
+    background-color: aqua;
+    background-image: var(--image-chili--corner);
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 100;
 }
 
 .page--with-chili::after {
-	content: "";
-	position: absolute;
-	top: 0;
-	right: -3.5rem;
-	width: 7rem;
-	height: 11rem;
-	background-color: aqua;
-	background-image: var(--image-chili--corner);
-	background-size: contain;
-	background-repeat: no-repeat;
-	z-index: 100;
-	transform: scaleX(-1);
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -2rem;
+    width: 7rem;
+    height: 11rem;
+    background-color: aqua;
+    background-image: var(--image-chili--corner);
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 100;
+    transform: scaleX(-1);
 }
-
 
 /* ========================================
    Home Page Styles
@@ -503,4 +555,3 @@ dialog {
 .catering__email a:hover {
     text-decoration: none;
 }
-
