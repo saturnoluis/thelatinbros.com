@@ -35,7 +35,7 @@ html {
 
     --page-width: 40rem;
 
-    --background-color: #ffffff;
+    --background-color: #faf5dc;
     --background-gradient: linear-gradient(
         190deg,
         rgba(255, 176, 82, 1) 0%,
@@ -218,10 +218,11 @@ dialog {
    ======================================== */
 
 .header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+	position: relative;
+    display: block;
+	background-color: orange;
+	padding: 5rem 0;
+	margin: 0 auto;
 }
 
 .header__logo--wrapper {
@@ -267,9 +268,9 @@ dialog {
     content: "";
     position: absolute;
     bottom: 0;
-    right: -2rem;
-    width: 9rem;
-    height: 19rem;
+    right: -3rem;
+    width: 10rem;
+    height: 21rem;
     background-color: aqua;
     background-image: var(--image-skeleton--corner);
     background-size: contain;
@@ -282,9 +283,9 @@ dialog {
     content: "";
     position: absolute;
     bottom: 0;
-    left: -2rem;
-    width: 9rem;
-    height: 19rem;
+    left: -3rem;
+    width: 10rem;
+    height: 21rem;
     background-color: aqua;
     background-image: var(--image-skeleton--corner);
     background-size: contain;
@@ -308,7 +309,7 @@ dialog {
 
 .page--with-chili {
     position: relative;
-    padding-top: 4.2rem;
+    padding-top: 5rem;
     background: green;
 }
 
@@ -316,9 +317,9 @@ dialog {
     content: "";
     position: absolute;
     top: 0;
-    left: -2rem;
-    width: 7rem;
-    height: 11rem;
+    left: -3rem;
+    width: 8rem;
+    height: 13rem;
     background-color: aqua;
     background-image: var(--image-chili--corner);
     background-size: contain;
@@ -330,9 +331,9 @@ dialog {
     content: "";
     position: absolute;
     top: 0;
-    right: -2rem;
-    width: 7rem;
-    height: 11rem;
+    right: -3rem;
+    width: 8rem;
+    height: 13rem;
     background-color: aqua;
     background-image: var(--image-chili--corner);
     background-size: contain;
@@ -354,6 +355,14 @@ dialog {
     flex-direction: column;
     gap: var(--spacing-lg);
     padding: var(--spacing-lg) 0;
+}
+
+/* ========================================
+ * Class Components
+ * ====================================== */
+
+.card {
+	background-color: var(--background-color);
 }
 
 /* Hero Section */
