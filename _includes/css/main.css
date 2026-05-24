@@ -45,7 +45,7 @@ html {
     --backdrop-blur: 0.2rem;
 
     --border-color: #000000;
-    --image-border-radius: 0rem;
+    --image-border-radius: 1rem;
 
     --text-color-primary: #000000;
     --text-color-primary--light: #000000;
@@ -210,7 +210,6 @@ dialog {
     margin: 0 auto;
     padding: var(--spacing-md);
     max-width: var(--page-width);
-    background: blue;
 }
 
 /* ========================================
@@ -220,7 +219,6 @@ dialog {
 .header {
 	position: relative;
     display: block;
-	background-color: orange;
 	padding: 5rem 0;
 	margin: 0 auto;
 }
@@ -236,7 +234,6 @@ dialog {
 .header__logo {
     width: 27rem;
     height: auto;
-    background: red;
 }
 
 .header__slogan {
@@ -256,7 +253,6 @@ dialog {
 	align-items: center;
 	justify-content: center;
 	gap: var(--spacing-sm);
-	background-color: purple;
 }
 
 .footer--with-skeletons {
@@ -271,7 +267,6 @@ dialog {
     right: -3rem;
     width: 10rem;
     height: 21rem;
-    background-color: aqua;
     background-image: var(--image-skeleton--corner);
     background-size: contain;
     background-repeat: no-repeat;
@@ -286,7 +281,6 @@ dialog {
     left: -3rem;
     width: 10rem;
     height: 21rem;
-    background-color: aqua;
     background-image: var(--image-skeleton--corner);
     background-size: contain;
     background-repeat: no-repeat;
@@ -310,7 +304,6 @@ dialog {
 .page--with-chili {
     position: relative;
     padding-top: 5rem;
-    background: green;
 }
 
 .page--with-chili::before {
@@ -320,7 +313,6 @@ dialog {
     left: -3rem;
     width: 8rem;
     height: 13rem;
-    background-color: aqua;
     background-image: var(--image-chili--corner);
     background-size: contain;
     background-repeat: no-repeat;
@@ -334,7 +326,6 @@ dialog {
     right: -3rem;
     width: 8rem;
     height: 13rem;
-    background-color: aqua;
     background-image: var(--image-chili--corner);
     background-size: contain;
     background-repeat: no-repeat;
@@ -363,7 +354,80 @@ dialog {
 
 .card {
 	background-color: var(--background-color);
+	padding: var(--spacing-md);
+	margin-bottom: var(--spacing-lg);
 }
+
+.card__title h2 {
+	font-size: 2.8rem;
+	font-weight: normal;
+	text-align: center;
+	line-height: 1;
+	margin-bottom: var(--spacing-sm);
+	text-shadow: 0px 8px 8px #f0dcaa;
+}
+
+.card__title h2 span {
+	font-size: 2rem;
+	font-weight: normal;
+	text-align: center;
+	line-height: 1;
+	margin-bottom: var(--spacing-sm);
+}
+
+.card--with-fire {
+	background-color: transparent;
+	position: relative;
+	padding: 0;
+}
+
+.card--with-fire .card__title {
+	background-color: var(--background-color);
+	margin: 0 0.8rem;
+	padding: var(--spacing-sm) var(--spacing-md);
+	border-top-left-radius: var(--image-border-radius);
+	border-top-right-radius: var(--image-border-radius);
+}
+
+.card--with-fire .card__content {
+	position: relative;
+	margin: 0 32px;
+	background-color: var(--background-color);
+	padding: var(--spacing-lg);
+	min-height: 15rem;
+}
+
+.card--with-fire:before {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: -1rem;
+	width: 6rem;
+	height: 15rem;
+	background-color: transparent;
+	background-image: url("../images/thelatinbros__flaming-decorations.gif");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: bottom center;
+	overflow: hidden;
+	z-index: 100;
+}
+
+.card--with-fire:after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	right: -1rem;
+	width: 6rem;
+	height: 15rem;
+	background-color: transparent;
+	background-image: url("../images/thelatinbros__flaming-decorations.gif");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: bottom center;
+	z-index: 100;
+}
+
 
 /* Hero Section */
 .hero {
