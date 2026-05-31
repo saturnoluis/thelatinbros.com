@@ -44,13 +44,15 @@ html {
     --backdrop-color: rgba(255, 255, 255, 0.9);
     --backdrop-blur: 0.2rem;
 
+	--button-color-primary: #f8b818;
     --border-color: #000000;
-    --image-border-radius: 1rem;
+    --border-size: 0.2rem;
+    --image-border-radius: 0;
 
     --text-color-primary: #000000;
     --text-color-primary--light: #000000;
     --text-color-primary--lighter: #000000;
-    --text-color-secondary: #000000;
+    --text-color-secondary: #700f00;
     --text-color-secondary--light: #000000;
     --text-color-secondary--lighter: #000000;
 
@@ -219,7 +221,7 @@ dialog {
 .header {
 	position: relative;
     display: block;
-	padding: 5rem 0;
+	padding: 5rem 0 7rem 0;
 	margin: 0 auto;
 }
 
@@ -232,7 +234,7 @@ dialog {
 }
 
 .header__logo {
-    width: 27rem;
+    width: 32rem;
     height: auto;
 }
 
@@ -257,7 +259,7 @@ dialog {
 
 .footer--with-skeletons {
 	padding: var(--spacing-lg) 0 5rem 0;
-	min-height: 19rem;
+	min-height: 20rem;
 }
 
 .footer--with-skeletons::before {
@@ -289,8 +291,6 @@ dialog {
 	transform: scaleX(-1);
 }
 
-
-
 /* ========================================
    Content layout & Variants
    ======================================== */
@@ -301,18 +301,21 @@ dialog {
     gap: var(--spacing-lg);
 }
 
+.page {
+	padding-top: 0rem;
+}
+
 .page--with-chili {
     position: relative;
-    padding-top: 5rem;
 }
 
 .page--with-chili::before {
     content: "";
     position: absolute;
-    top: 0;
+    top: -3rem;
     left: -3rem;
-    width: 8rem;
-    height: 13rem;
+    width: 9rem;
+    height: 16rem;
     background-image: var(--image-chili--corner);
     background-size: contain;
     background-repeat: no-repeat;
@@ -322,10 +325,10 @@ dialog {
 .page--with-chili::after {
     content: "";
     position: absolute;
-    top: 0;
+    top: -3rem;
     right: -3rem;
-    width: 8rem;
-    height: 13rem;
+    width: 9rem;
+    height: 16rem;
     background-image: var(--image-chili--corner);
     background-size: contain;
     background-repeat: no-repeat;
@@ -352,18 +355,20 @@ dialog {
  * Class Components
  * ====================================== */
 
+/* Card */
+
 .card {
 	background-color: var(--background-color);
 	padding: var(--spacing-md);
-	margin-bottom: var(--spacing-lg);
+	padding-bottom: var(--spacing-sm);
+	margin-bottom: var(--spacing-xl);
 }
 
 .card__title h2 {
-	font-size: 2.8rem;
+	font-size: 2.6rem;
 	font-weight: normal;
 	text-align: center;
 	line-height: 1;
-	margin-bottom: var(--spacing-sm);
 	text-shadow: 0px 8px 8px #f0dcaa;
 }
 
@@ -372,7 +377,6 @@ dialog {
 	font-weight: normal;
 	text-align: center;
 	line-height: 1;
-	margin-bottom: var(--spacing-sm);
 }
 
 .card--with-fire {
@@ -383,18 +387,23 @@ dialog {
 
 .card--with-fire .card__title {
 	background-color: var(--background-color);
-	margin: 0 0.8rem;
-	padding: var(--spacing-sm) var(--spacing-md);
+	margin: 0 0.6rem;
+	padding: var(--spacing-xs);
 	border-top-left-radius: var(--image-border-radius);
 	border-top-right-radius: var(--image-border-radius);
+	text-transform: uppercase;
+	border-top: var(--border-size) solid var(--border-color);
 }
 
 .card--with-fire .card__content {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-sm);
 	position: relative;
 	margin: 0 32px;
 	background-color: var(--background-color);
-	padding: var(--spacing-lg);
-	min-height: 15rem;
+	padding: var(--spacing-lg) 0;
+	height: 18rem;
 }
 
 .card--with-fire:before {
@@ -403,7 +412,7 @@ dialog {
 	bottom: 0;
 	left: -1rem;
 	width: 6rem;
-	height: 15rem;
+	height: 18rem;
 	background-color: transparent;
 	background-image: url("../images/thelatinbros__flaming-decorations.gif");
 	background-size: contain;
@@ -419,7 +428,7 @@ dialog {
 	bottom: 0;
 	right: -1rem;
 	width: 6rem;
-	height: 15rem;
+	height: 18rem;
 	background-color: transparent;
 	background-image: url("../images/thelatinbros__flaming-decorations.gif");
 	background-size: contain;
@@ -428,35 +437,71 @@ dialog {
 	z-index: 100;
 }
 
+.location__hours {
+	font-size: 1.2rem;
+	line-height: 1.5;
+	text-align: center;
+}
+.location__directions {
+	font-style: italic;
+	font-size: 1rem;
+	line-height: 1.6;
+	text-align: center;
+}
+.location__map-button {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: var(--spacing-xs);
+	padding: var(--spacing-sm) var(--spacing-md);
+	background-color: var(--button-color-primary);
+	color: var(--text-color-secondary);
+	border-bottom: var(--border-size) solid var(--border-color);
+	text-decoration: none;
+	font-size: 1.5rem;
+	font-weight: 700;
+	font-style: italic;
+	text-transform: uppercase;
+	transition: all 0.2s ease-in-out;
+	text-shadow: 0px 5px 5px rgba(130, 11, 0, 0.3);
+}
 
-/* Hero Section */
+/* Hero */
+
 .hero {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-md);
+    gap: var(--spacing-sm);
     text-align: center;
+	margin-bottom: calc(var(--spacing-xl) * 2);
 }
 
 .hero__title {
-    font-size: 2.5rem;
+    font-size: 3.2rem;
     font-weight: 900;
     line-height: 1.1;
     text-transform: uppercase;
-    letter-spacing: -0.02em;
+    letter-spacing: 0.02em;
 }
 
 .hero__tagline {
-    font-size: 1rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    font-size: 2.8rem;
+    font-weight: 800;
+	font-style: italic;
+	letter-spacing: -0.02em;
+	padding: 0 var(--spacing-md);
+	line-height: 1;
+	color: var(--text-color-secondary);
 }
 
 .hero__description {
-    font-size: 1rem;
-    line-height: 1.6;
+    font-size: 1.7rem;
+    line-height: 1;
     margin-top: var(--spacing-sm);
 }
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
 /* Location Cards */
 .location-card {
@@ -597,7 +642,7 @@ dialog {
 
 /* Catering Section */
 .catering {
-    border: 1px solid var(--border-color);
+    border: var(--border-size) solid var(--border-color);
     padding: var(--spacing-md);
     text-align: center;
 }
