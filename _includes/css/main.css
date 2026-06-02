@@ -33,7 +33,7 @@
 html {
     --font-size-base: 16px;
 
-    --page-width: 40rem;
+    --page-width: 42rem;
 
     --background-color: #faf5dc;
     --background-gradient: linear-gradient(
@@ -45,9 +45,14 @@ html {
     --backdrop-blur: 0.2rem;
 
 	--button-color-primary: #f8b818;
+
     --border-color: #000000;
+    --border-color-secondary: #f8b818;
+
     --border-size: 0.2rem;
-    --image-border-radius: 0;
+    --border-size-sm: 1px;
+
+    --image-border-radius: 1.4rem;
 
     --text-color-primary: #000000;
     --text-color-primary--light: #000000;
@@ -362,6 +367,25 @@ dialog {
 	padding: var(--spacing-md);
 	padding-bottom: var(--spacing-sm);
 	margin-bottom: var(--spacing-xl);
+	border-bottom-left-radius: var(--image-border-radius);
+	border-bottom-right-radius: var(--image-border-radius);
+	overflow: hidden;
+}
+
+.card__image {
+	width: 100%;
+	height: auto;
+	padding: 0 0.6rem;
+	display: block;
+}
+
+.card__image img {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-top-left-radius: var(--image-border-radius);
+	border-top-right-radius: var(--image-border-radius);
+	overflow: hidden;
 }
 
 .card__title h2 {
@@ -369,7 +393,8 @@ dialog {
 	font-weight: normal;
 	text-align: center;
 	line-height: 1;
-	text-shadow: 0px 8px 8px #f0dcaa;
+	padding: var(--spacing-sm) 0;
+	border-bottom: var(--border-size-sm) solid var(--border-color-secondary);
 }
 
 .card__title h2 span {
@@ -389,8 +414,6 @@ dialog {
 	background-color: var(--background-color);
 	margin: 0 0.6rem;
 	padding: var(--spacing-xs);
-	border-top-left-radius: var(--image-border-radius);
-	border-top-right-radius: var(--image-border-radius);
 	text-transform: uppercase;
 	border-top: var(--border-size) solid var(--border-color);
 }
@@ -438,8 +461,8 @@ dialog {
 }
 
 .location__hours {
-	font-size: 1.2rem;
-	line-height: 1.5;
+	font-size: 1.5rem;
+	line-height: 1.2;
 	text-align: center;
 }
 .location__directions {
@@ -459,12 +482,11 @@ dialog {
 	color: var(--text-color-secondary);
 	border-bottom: var(--border-size) solid var(--border-color);
 	text-decoration: none;
-	font-size: 1.5rem;
+	font-size: 1.3rem;
 	font-weight: 700;
 	font-style: italic;
 	text-transform: uppercase;
 	transition: all 0.2s ease-in-out;
-	text-shadow: 0px 5px 5px rgba(130, 11, 0, 0.3);
 }
 
 /* Hero */
