@@ -352,6 +352,10 @@ dialog {
     width: 100%;
 }
 
+.home.page {
+    max-width: calc(var(--page-width) * 2);
+}
+
 .home__content {
     display: flex;
     flex-direction: column;
