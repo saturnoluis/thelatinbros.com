@@ -260,6 +260,8 @@ dialog {
     display: block;
     margin: 0 auto;
     padding: 5rem 0 7rem 0;
+	background: blue;
+	min-height: 80dvh;
 }
 
 .header__logo--wrapper {
@@ -356,6 +358,9 @@ dialog {
 
 .page--with-chili {
     position: relative;
+
+	--chilli-width: 16rem;
+	--chilli-height: 24rem;
 }
 
 .page--with-chili::before {
@@ -363,8 +368,8 @@ dialog {
     position: absolute;
     top: -3rem;
     left: -3rem;
-    width: 9rem;
-    height: 16rem;
+    width: var(--chilli-width);
+    height: var(--chilli-height);
     background-image: var(--image-chili--corner);
     background-size: contain;
     background-repeat: no-repeat;
@@ -376,8 +381,8 @@ dialog {
     position: absolute;
     top: -3rem;
     right: -3rem;
-    width: 9rem;
-    height: 16rem;
+	width: var(--chilli-width);
+	height: var(--chilli-height);
     background-image: var(--image-chili--corner);
     background-size: contain;
     background-repeat: no-repeat;
@@ -416,19 +421,19 @@ dialog {
     gap: var(--spacing-sm);
     margin-bottom: calc(var(--spacing-xl) * 2);
     text-align: center;
+	padding: 0 10rem;
 }
 
 .hero__title {
-    font-size: 3.2rem;
+    font-size: 6rem;
     font-weight: 900;
-    line-height: 1.1;
+    line-height: 1;
     text-transform: uppercase;
     letter-spacing: 0.02em;
 }
 
 .hero__tagline {
-    padding: 0 var(--spacing-md);
-    font-size: 2.8rem;
+    font-size: 2.6rem;
     font-weight: 800;
     font-style: italic;
     line-height: 1;
@@ -438,7 +443,7 @@ dialog {
 
 .hero__description {
     margin-top: var(--spacing-sm);
-    font-size: 1.7rem;
+    font-size: 2rem;
     line-height: 1;
 }
 
@@ -554,7 +559,7 @@ dialog {
 }
 
 .location__directions {
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-style: italic;
     line-height: 1.6;
     text-align: center;
