@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Icon System Test - The Latin Bros</title>
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        body {
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .test-section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 1rem;
+        }
+        .test-section h2 {
+            margin-bottom: 1rem;
+            color: var(--text-color-secondary);
+        }
+        .icon-row {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin: 1rem 0;
+            padding: 0.5rem;
+            background: rgba(250, 245, 220, 0.5);
+            border-radius: 0.5rem;
+        }
+        .icon-label {
+            font-family: monospace;
+            font-size: 0.9rem;
+            color: #666;
+            min-width: 200px;
+        }
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 3rem;
+            height: 3rem;
+            background: var(--button-color-primary);
+            border-radius: 50%;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+        .social-link:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>The Latin Bros - Icon System Test</h1>
+    
+    <div class="test-section">
+        <h2>All Available Icons (Default Size)</h2>
+        <div class="icon-row">
+            <span class="icon-label">.icon--map</span>
+            <i class="icon icon--map"></i>
+        </div>
+        <div class="icon-row">
+            <span class="icon-label">.icon--tiktok</span>
+            <i class="icon icon--tiktok"></i>
+        </div>
+        <div class="icon-row">
+            <span class="icon-label">.icon--instagram</span>
+            <i class="icon icon--instagram"></i>
+        </div>
+        <div class="icon-row">
+            <span class="icon-label">.icon--2g2g</span>
+            <i class="icon icon--2g2g"></i>
+        </div>
+        <div class="icon-row">
+            <span class="icon-label">.icon--skull</span>
+            <i class="icon icon--skull"></i>
+        </div>
+        <div class="icon-row">
+            <span class="icon-label">.icon--email</span>
+            <i class="icon icon--email"></i>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Size Variations (Skull Icon)</h2>
+        <div class="icon-row">
+            <span class="icon-label">.icon--sm</span>
+            <i class="icon icon--skull icon--sm"></i>
+        </div>
+        <div class="icon-row">
+            <span class="icon-label">default</span>
+            <i class="icon icon--skull"></i>
+        </div>
+        <div class="icon-row">
+            <span class="icon-label">.icon--lg</span>
+            <i class="icon icon--skull icon--lg"></i>
+        </div>
+        <div class="icon-row">
+            <span class="icon-label">.icon--xl</span>
+            <i class="icon icon--skull icon--xl"></i>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Brand Color Modifiers</h2>
+        <div class="icon-row">
+            <span class="icon-label">.icon--primary</span>
+            <i class="icon icon--skull icon--lg icon--primary"></i>
+        </div>
+        <div class="icon-row">
+            <span class="icon-label">.icon--secondary</span>
+            <i class="icon icon--skull icon--lg icon--secondary"></i>
+        </div>
+        <div class="icon-row">
+            <span class="icon-label">.icon--yellow</span>
+            <i class="icon icon--skull icon--lg icon--yellow"></i>
+        </div>
+        <div class="icon-row">
+            <span class="icon-label">.icon--border</span>
+            <i class="icon icon--skull icon--lg icon--border"></i>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Custom Colors (Inline Styles)</h2>
+        <div class="icon-row">
+            <span class="icon-label">Instagram Pink</span>
+            <i class="icon icon--instagram icon--xl" style="color: #E4405F;"></i>
+        </div>
+        <div class="icon-row">
+            <span class="icon-label">TikTok Cyan</span>
+            <i class="icon icon--tiktok icon--xl" style="color: #00F2EA;"></i>
+        </div>
+        <div class="icon-row">
+            <span class="icon-label">Green Email</span>
+            <i class="icon icon--email icon--xl" style="color: #4CAF50;"></i>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Social Media Links Example</h2>
+        <div class="social-links">
+            <a href="#" class="social-link" title="Instagram">
+                <i class="icon icon--instagram icon--lg" style="color: var(--text-color-secondary);"></i>
+            </a>
+            <a href="#" class="social-link" title="TikTok">
+                <i class="icon icon--tiktok icon--lg" style="color: var(--text-color-secondary);"></i>
+            </a>
+            <a href="#" class="social-link" title="Email">
+                <i class="icon icon--email icon--lg" style="color: var(--text-color-secondary);"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Button Examples</h2>
+        
+        <a href="#" class="location__map-button">
+            <i class="icon icon--map"></i>
+            Open in Google Maps
+        </a>
+        
+        <br><br>
+        
+        <a href="#" class="food-waste__cta">
+            <i class="icon icon--2g2g"></i>
+            Catch Surprise Bags on Too Good To Go
+        </a>
+        
+        <br><br>
+        
+        <a href="#" class="action-button">
+            <i class="icon icon--instagram"></i>
+            Follow Us on Instagram
+        </a>
+    </div>
+
+    <div class="test-section">
+        <h2>Decorative Usage</h2>
+        <h3 style="display: flex; align-items: center; gap: 0.5rem;">
+            <i class="icon icon--skull icon--secondary"></i>
+            Spicy Menu Items
+            <i class="icon icon--skull icon--secondary"></i>
+        </h3>
+        <p style="display: flex; align-items: center; gap: 0.5rem;">
+            <i class="icon icon--email"></i>
+            Contact us at: info@thelatinbros.com
+        </p>
+    </div>
+
+</body>
+</html>
