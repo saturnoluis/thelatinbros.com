@@ -1,23 +1,11 @@
 /* ================================================================
-   TABLE OF CONTENTS
-   ================================================================
-   1. Fonts & Imports
-   2. CSS Reset & Base Styles
-   3. CSS Variables
-   4. Base Elements
-   5. Layout
-   6. Pages
-   7. Components
-   ================================================================ */
-
-/* ================================================================
-   1. FONTS & IMPORTS
+   FONTS & IMPORTS
    ================================================================ */
 
 @import url("https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
 
 /* ================================================================
-   2. CSS RESET & BASE STYLES
+   CSS RESET & BASE STYLES
    ================================================================ */
 
 /* Box-sizing reset for all elements */
@@ -46,7 +34,7 @@
 }
 
 /* ================================================================
-   3. CSS VARIABLES
+   CSS VARIABLES
    ================================================================ */
 
 html {
@@ -92,6 +80,7 @@ html {
     --image-logo: url("../images/thelatinbros__logo.opti.webp");
     --image-chili--corner: url("../images/thelatinbros__chili--corner.opti.webp");
     --image-skeleton--corner: url("../images/thelatinbros__skeleton--corner.opti.webp");
+    --hero-background: url("../images/thelatinbros_hero-bg.webp");
 
     font-size: var(--font-size-base);
     font-family: var(--font-family-base);
@@ -101,7 +90,7 @@ html {
 }
 
 /* ================================================================
-   4. BASE ELEMENTS
+   BASE ELEMENTS
    ================================================================ */
 
 /* HTML & Body */
@@ -111,7 +100,8 @@ body {
     width: 100%;
     margin: 0;
     min-height: 100dvh;
-    scroll-padding-top: 4rem;
+	max-width: 100dvw;
+	overflow-x: hidden;
 }
 
 /* Typography */
@@ -237,7 +227,7 @@ dialog {
 }
 
 /* ================================================================
-   5. LAYOUT
+   LAYOUT
    ================================================================ */
 
 /* Main Container */
@@ -250,7 +240,6 @@ dialog {
     align-items: center;
     gap: var(--spacing-lg);
     margin: 0 auto;
-    padding: var(--spacing-md);
 }
 
 /* Header */
@@ -291,6 +280,7 @@ dialog {
 /* Content Wrapper */
 
 .content--wrapper {
+	width: 100dvw;
     display: flex;
     flex-direction: column;
     gap: var(--spacing-lg);
@@ -343,54 +333,8 @@ dialog {
 }
 
 /* ================================================================
-   6. PAGES
+   HOME PAGE
    ================================================================ */
-
-/* Base Page */
-
-.page {
-    margin: 0 auto;
-    padding-top: 0rem;
-    max-width: var(--page-width);
-}
-
-/* Page with Chili Decoration */
-
-.page--with-chili {
-    position: relative;
-
-	--chilli-width: 16rem;
-	--chilli-height: 24rem;
-}
-
-.page--with-chili::before {
-    content: "";
-    position: absolute;
-    top: -3rem;
-    left: -3rem;
-    width: var(--chilli-width);
-    height: var(--chilli-height);
-    background-image: var(--image-chili--corner);
-    background-size: contain;
-    background-repeat: no-repeat;
-    z-index: 100;
-}
-
-.page--with-chili::after {
-    content: "";
-    position: absolute;
-    top: -3rem;
-    right: -3rem;
-	width: var(--chilli-width);
-	height: var(--chilli-height);
-    background-image: var(--image-chili--corner);
-    background-size: contain;
-    background-repeat: no-repeat;
-    transform: scaleX(-1);
-    z-index: 100;
-}
-
-/* Home Page */
 
 .home {
     width: 100%;
@@ -408,7 +352,7 @@ dialog {
 }
 
 /* ================================================================
-   7. COMPONENTS
+   COMPONENTS
    ================================================================ */
 
 /* --------------------------------
@@ -416,32 +360,81 @@ dialog {
    -------------------------------- */
 
 .hero {
-    display: flex;
+	--hero-height: 82dvh;
+	--chilli-width: 16dvw;
+	--chilli-height: calc(var(--chilli-width) * 1.6);
+	--chilli-x-pos: calc(var(--chilli-height) * 0.17 * -1);
+	--chilli-y-pos: -4rem;
+
+    position: relative;
+	display: flex;
     flex-direction: column;
+	justify-content: center;
+	align-items: center;
     gap: var(--spacing-sm);
+
+	height: var(--hero-height);
+	min-height: var(--chilli-height);
+	padding: 0 var(--chilli-width);
     margin-bottom: calc(var(--spacing-xl) * 2);
+
+	color: var(--text-color-secondary--light);
     text-align: center;
-	padding: 0 10rem;
+	text-shadow: 0 0 2rem var(--text-color-primary);
+
+	background-image:
+		radial-gradient(circle,rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 1) 100%),
+		var(--hero-background)
+	;
+	background-size: cover;
+	background-attachment: fixed;
 }
 
-.hero__title {
-    font-size: 6rem;
+.hero::before {
+    content: "";
+    position: absolute;
+    top: var(--chilli-x-pos);
+    left: var(--chilli-y-pos);
+    width: var(--chilli-width);
+    height: var(--chilli-height);
+    background-image: var(--image-chili--corner);
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 100;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+	top: var(--chilli-x-pos);
+    right: var(--chilli-y-pos);
+	width: var(--chilli-width);
+	height: var(--chilli-height);
+    background-image: var(--image-chili--corner);
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: scaleX(-1);
+    z-index: 100;
+}
+
+.hero .hero__title {
+    font-size: 7.2rem;
     font-weight: 900;
     line-height: 1;
     text-transform: uppercase;
     letter-spacing: 0.02em;
 }
 
-.hero__tagline {
-    font-size: 2.6rem;
+.hero .hero__tagline {
+    font-size: 3rem;
     font-weight: 800;
     font-style: italic;
     line-height: 1;
-    color: var(--text-color-secondary);
+    color: var(--border-color-secondary);
     letter-spacing: -0.02em;
 }
 
-.hero__description {
+.hero .hero__description {
     margin-top: var(--spacing-sm);
     font-size: 2rem;
     line-height: 1;
