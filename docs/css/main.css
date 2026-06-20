@@ -54,6 +54,7 @@ html {
     --button-color-primary: #f8b818;
 
     --border-color: #faf5dc;
+    --border-color--inverted: #0146e2;
     --border-color-secondary: #f8b818;
 
     --border-size: 0.2rem;
@@ -240,6 +241,7 @@ dialog {
     align-items: center;
     gap: var(--spacing-lg);
     margin: 0 auto;
+	overflow-x: hidden;
 }
 
 /* Header */
@@ -461,6 +463,7 @@ dialog {
     border-bottom-right-radius: var(--image-border-radius);
     overflow: hidden;
     max-width: var(--page-width);
+	filter: invert();
 }
 
 .card:before {
@@ -499,6 +502,7 @@ dialog {
     width: 100%;
     height: auto;
     padding: 0 0.6rem;
+	filter: invert();
 }
 
 .card__image img {
@@ -515,7 +519,6 @@ dialog {
     padding: var(--spacing-xs);
     background-color: var(--background-color);
     text-transform: uppercase;
-    border-top: var(--border-size) solid var(--border-color);
 }
 
 .card__title h2 {
@@ -524,7 +527,7 @@ dialog {
     font-weight: normal;
     line-height: 1;
     text-align: center;
-    border-bottom: var(--border-size-sm) solid var(--border-color-secondary);
+    border-bottom: var(--border-size-sm) solid var(--border-color--inverted);
 }
 
 .card__title h2 span {
@@ -574,6 +577,7 @@ dialog {
     text-decoration: none;
     text-transform: uppercase;
     transition: all 0.2s ease-in-out;
+	filter: invert();
 }
 
 /* --------------------------------
