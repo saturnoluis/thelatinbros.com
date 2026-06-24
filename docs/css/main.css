@@ -40,15 +40,16 @@
 html {
     --font-size-base: 16px;
 
-    --page-width: 42rem;
+    --page-width: 96rem;
 
     --background-color: #faf5dc;
+    --background-color--inverted: rgba(1, 3, 31, 1);
     --background-gradient: linear-gradient(
         190deg,
         rgba(255, 176, 82, 1) 0%,
         rgba(254, 139, 114, 1) 100%
     );
-    --backdrop-color: rgba(255, 255, 255, 0.5);
+    --backdrop-color: rgba(0, 0, 0, 0.7);
     --backdrop-blur: 0.2rem;
 
     --button-color-primary: #f8b818;
@@ -57,10 +58,12 @@ html {
     --border-color--inverted: #0146e2;
     --border-color-secondary: #f8b818;
 
-    --border-size: 0.2rem;
+    --border-size: 0.25rem;
     --border-size-sm: 3px;
+    --border-size-xl: 0.4rem;
 
     --image-border-radius: 1.4rem;
+    --image-border-radius-sm: 1rem;
 
     --text-color-primary: #000000;
     --text-color-primary--light: #000000;
@@ -81,7 +84,9 @@ html {
     --image-logo: url("../images/thelatinbros__logo.opti.webp");
     --image-chili--corner: url("../images/thelatinbros__chili--corner.opti.webp");
     --image-skeleton--corner: url("../images/thelatinbros__skeleton--corner.opti.webp");
+
     --hero-background: url("../images/thelatinbros_hero-bg.webp");
+    --get-menu-background: url("../images/thelatinbros_menu-bg.webp");
 
     font-size: var(--font-size-base);
     font-family: var(--font-family-base);
@@ -228,6 +233,25 @@ dialog {
 }
 
 /* ================================================================
+   ICONS
+   ================================================================ */
+
+.icon {
+	--icon-size: 2rem;
+
+	display: inline-block;
+	height: var(--icon-size);
+	width: var(--icon-size);
+	margin: 0;
+	padding: 0;
+}
+
+.icon--flipped {
+    transform: scaleX(-1);
+}
+
+
+/* ================================================================
    LAYOUT
    ================================================================ */
 
@@ -285,7 +309,7 @@ dialog {
 	width: 100dvw;
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-md);
 }
 
 /* Footer */
@@ -338,31 +362,13 @@ dialog {
    HOME PAGE
    ================================================================ */
 
-.home {
-    width: 100%;
-}
-
-.home.page {
-    max-width: calc(var(--page-width) * 2);
-}
-
-.home__content {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-lg);
-    padding: var(--spacing-lg) 0;
-}
-
-/* ================================================================
-   COMPONENTS
-   ================================================================ */
-
 /* --------------------------------
    Hero Section
    -------------------------------- */
 
 .hero {
 	--hero-height: 82dvh;
+
 	--chilli-width: 16dvw;
 	--chilli-height: calc(var(--chilli-width) * 1.6);
 	--chilli-x-pos: calc(var(--chilli-height) * 0.17 * -1);
@@ -453,6 +459,8 @@ dialog {
     justify-content: center;
     align-items: center;
     gap: var(--spacing-md);
+	max-width: var(--page-width);
+	margin: 0 auto;
 }
 
 .card {
@@ -462,7 +470,7 @@ dialog {
     border-bottom-left-radius: var(--image-border-radius);
     border-bottom-right-radius: var(--image-border-radius);
     overflow: hidden;
-    max-width: var(--page-width);
+    max-width: calc(var(--page-width) / 2.2);
 	filter: invert();
 }
 
@@ -567,9 +575,9 @@ dialog {
     justify-content: center;
     align-items: center;
     gap: var(--spacing-xs);
-    padding: var(--spacing-sm) var(--spacing-md);
+    padding: var(--spacing-sm) 0;
     background-color: var(--button-color-primary);
-    border-bottom: var(--border-size) solid var(--border-color);
+    border-bottom: var(--border-size) solid var(--background-color--inverted);
     color: var(--text-color-secondary);
     font-size: 1.3rem;
     font-weight: 700;
@@ -579,6 +587,41 @@ dialog {
     transition: all 0.2s ease-in-out;
 	filter: invert();
 }
+
+.location-disclaimer {
+    padding: var(--spacing-xs) 0;
+    background: var(--backdrop-color);
+    border-radius: var(--image-border-radius-sm);
+    text-align: center;
+	width: 100%;
+	max-width: calc(var(--page-width) - 8rem);
+	margin: 0 auto;
+	margin-bottom: calc(var(--spacing-xl) * 2);
+}
+
+.location-disclaimer__text {
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.5;
+	color: var(--text-color-secondary--light)
+}
+
+/* --------------------------------
+   Get Menu buttons
+   -------------------------------- */
+.get-menu {
+	--get-menu-height: 40dvh;
+
+	height: var(--get-menu-height);
+
+	background-image:
+		radial-gradient(circle,rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 1) 100%),
+		var(--get-menu-background)
+	;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
 
 /* --------------------------------
    Action Buttons
@@ -627,38 +670,6 @@ dialog {
 .action-button--menu:hover {
     transform: scale(1.02) translateY(-2px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-
-/* --------------------------------
-   Disclaimer
-   -------------------------------- */
-
-.disclaimer {
-    padding: var(--spacing-sm);
-    background: var(--backdrop-color);
-    border: var(--border-size-sm) solid var(--border-color);
-    border-radius: var(--image-border-radius);
-    text-align: center;
-}
-
-.disclaimer__title {
-    width: fit-content;
-    margin: 0 auto;
-    margin-top: calc(2.4rem * -1);
-    padding: 0 var(--spacing-md);
-    background: var(--background-color);
-    border-radius: var(--image-border-radius);
-    font-family: var(--font-family-heading);
-    font-size: 2rem;
-    font-weight: 800;
-    text-transform: uppercase;
-}
-
-.disclaimer__text {
-    font-size: 1.5rem;
-    font-weight: 600;
-    font-style: italic;
-    line-height: 1.5;
 }
 
 /* --------------------------------
