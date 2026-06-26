@@ -246,9 +246,9 @@ dialog {
 	padding: 0;
 }
 
-.icon--flipped {
-    transform: scaleX(-1);
-}
+.icon--md { --icon-size: 4rem; }
+.icon--flipped { transform: scaleX(-1); }
+.icon--inverted { filter: invert(); }
 
 
 /* ================================================================
@@ -386,7 +386,6 @@ dialog {
 	padding: 0 var(--chilli-width);
     margin-bottom: calc(var(--spacing-xl) * 2);
 
-	color: var(--text-color-secondary--light);
     text-align: center;
 	text-shadow: 0 0 2rem var(--text-color-primary);
 
@@ -429,6 +428,7 @@ dialog {
     font-size: 7.2rem;
     font-weight: 900;
     line-height: 1;
+	color: var(--text-color-secondary--light);
     text-transform: uppercase;
     letter-spacing: 0.02em;
 }
@@ -445,6 +445,7 @@ dialog {
 .hero .hero__description {
     margin-top: var(--spacing-sm);
     font-size: 2rem;
+	color: var(--text-color-secondary--light);
     line-height: 1;
 }
 
@@ -612,6 +613,11 @@ dialog {
 .get-menu {
 	--get-menu-height: 40dvh;
 
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: var(--spacing-md);
 	height: var(--get-menu-height);
 
 	background-image:
@@ -620,6 +626,47 @@ dialog {
 	;
 	background-size: cover;
 	background-attachment: fixed;
+}
+
+.get-menu__title {
+	font-size: 4.2rem;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: 0.02em;
+	color: var(--text-color-secondary--light);
+    text-transform: uppercase;
+	text-shadow: 0 0 2rem var(--text-color-primary);
+}
+
+.get-menu__buttons {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: var(--spacing-sm);
+	padding: 0;
+	background-color: red;
+	border-radius: var(--image-border-radius);
+}
+
+.get-menu__buttons a {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: fit-content;
+	gap: var(--spacing-sm);
+	font-size: 2rem;
+	font-family: var(--font-size-base);
+	color: var(--text-color-secondary--light);
+	padding: var(--spacing-md);
+	background-color: red;
+	border-radius: var(--image-border-radius);
+	transition: transform 100ms;
+}
+
+.get-menu__buttons a:hover {
+	transform: scale(1.2);
 }
 
 
