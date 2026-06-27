@@ -70,7 +70,7 @@ html {
     --text-color-primary--lighter: #000000;
     --text-color-secondary: #700f00;
     --text-color-secondary--light: #faf5dc;
-    --text-color-secondary--lighter: #000000;
+    --text-color-secondary--lighter: rgba(248, 184, 24, 1);
 
     --font-family-heading: "Lilita One", sans-serif;
     --font-family-base: "Nunito", sans-serif;
@@ -611,7 +611,8 @@ dialog {
    Get Menu buttons
    -------------------------------- */
 .get-menu {
-	--get-menu-height: 40dvh;
+	--get-menu-height: 60dvh;
+	--get-menu-bg: #000000;
 
 	display: flex;
 	flex-direction: column;
@@ -645,7 +646,7 @@ dialog {
 	align-items: center;
 	gap: var(--spacing-sm);
 	padding: 0;
-	background-color: red;
+	background-color: var(--get-menu-bg);
 	border-radius: var(--image-border-radius);
 }
 
@@ -660,13 +661,22 @@ dialog {
 	font-family: var(--font-size-base);
 	color: var(--text-color-secondary--light);
 	padding: var(--spacing-md);
-	background-color: red;
+	background-color: var(--get-menu-bg);
 	border-radius: var(--image-border-radius);
-	transition: transform 100ms;
+	border: var(--border-size) solid var(--get-menu-bg);
+	transition: all 100ms;
 }
 
 .get-menu__buttons a:hover {
 	transform: scale(1.2);
+	color: var(--text-color-secondary--lighter);
+	border: var(--border-size) solid var(--border-color-secondary);
+}
+.get-menu__buttons a#get-sandwiches-menu:hover {
+	border-right: var(--border-size) solid var(--get-menu-bg);
+}
+.get-menu__buttons a#get-tacos-menu:hover {
+	border-left: var(--border-size) solid var(--get-menu-bg);
 }
 
 
