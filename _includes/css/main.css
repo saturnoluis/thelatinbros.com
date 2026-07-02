@@ -43,8 +43,7 @@ html {
     --page-width: 96rem;
 
     --background-color: #faf5dc;
-    --background-color--inverted: rgba(1, 3, 31, 1);
-    --background-gradient: linear-gradient(
+    --background-color--inverted: rgba(1, 3, 31, 1); --background-gradient: linear-gradient(
         190deg,
         rgba(255, 176, 82, 1) 0%,
         rgba(254, 139, 114, 1) 100%
@@ -56,7 +55,7 @@ html {
 
     --border-color: #faf5dc;
     --border-color--inverted: #0146e2;
-    --border-color-secondary: #f8b818;
+    --border-color-secondary: #FFB052;
 
     --border-size: 0.25rem;
     --border-size-sm: 3px;
@@ -303,7 +302,12 @@ dialog {
     letter-spacing: 0.05em;
 }
 
-/* Content Wrapper */
+/* Content */
+
+.content {
+	max-width: var(--page-width);
+	margin: 0 auto;
+}
 
 .content--wrapper {
 	width: 100dvw;
@@ -325,17 +329,22 @@ dialog {
 }
 
 .footer--with-skeletons {
-    padding: var(--spacing-lg) 0 5rem 0;
+	--skeleton-width: 16dvw;
+	--skeleton-height: calc(var(--skeleton-width) * 1.6);
+	--skeleton-x-pos: calc(var(--skeleton-height) * 0.17 * -1);
+	--skeleton-y-pos: 4rem;
+
+	padding: var(--spacing-lg) 0 5rem 0;
     min-height: 20rem;
 }
 
 .footer--with-skeletons::before {
     content: "";
     position: absolute;
-    bottom: 0;
-    right: -3rem;
-    width: 10rem;
-    height: 21rem;
+    right: var(--skeleton-x-pos);
+    bottom: var(--skeleton-y-pos);
+    width: var(--skeleton-width);
+    height: var(--skeleton-height);
     background-image: var(--image-skeleton--corner);
     background-size: contain;
     background-repeat: no-repeat;
@@ -346,10 +355,10 @@ dialog {
 .footer--with-skeletons::after {
     content: "";
     position: absolute;
-    bottom: 0;
-    left: -3rem;
-    width: 10rem;
-    height: 21rem;
+	left: var(--skeleton-x-pos);
+    bottom: var(--skeleton-y-pos);
+    width: var(--skeleton-width);
+    height: var(--skeleton-height);
     background-image: var(--image-skeleton--corner);
     background-size: contain;
     background-repeat: no-repeat;
@@ -780,7 +789,7 @@ dialog {
 
 .catering {
     position: relative;
-    padding: var(--spacing-xl) var(--spacing-lg);
+    padding: var(--spacing-xl) var(--spacing-xl);
     background-color: var(--background-color);
     border: var(--border-size) solid var(--border-color-secondary);
     border-radius: var(--image-border-radius);
