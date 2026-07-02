@@ -56,7 +56,7 @@ html {
     --border-color: #faf5dc;
     --border-color--inverted: #0146e2;
     --border-color-secondary: #FFB052;
-
+	--border-color-dark: #000000;
     --border-size: 0.25rem;
     --border-size-sm: 3px;
     --border-size-xl: 0.4rem;
@@ -789,9 +789,10 @@ dialog {
 
 .catering {
     position: relative;
-    padding: var(--spacing-xl) var(--spacing-xl);
+    padding: var(--spacing-xl) 8dvw;
     background-color: var(--background-color);
-    border: var(--border-size) solid var(--border-color-secondary);
+    border: var(--border-size-xl) solid var(--border-color-dark);
+	border-top: none;
     border-radius: var(--image-border-radius);
     text-align: center;
     overflow: hidden;
