@@ -43,7 +43,8 @@ html {
     --page-width: 96rem;
 
     --background-color: #faf5dc;
-    --background-color--inverted: rgba(1, 3, 31, 1); --background-gradient: linear-gradient(
+    --background-color--inverted: rgba(1, 3, 31, 1);
+	--background-gradient: linear-gradient(
         190deg,
         rgba(255, 176, 82, 1) 0%,
         rgba(254, 139, 114, 1) 100%
@@ -84,6 +85,7 @@ html {
     --spacing-xl: 3rem;
 
     --image-logo: url("../images/thelatinbros__logo.opti.webp");
+	--image-skull: url(../css/icons/thelatinbros_skull_icon.svg);
     --image-chili--corner: url("../images/thelatinbros__chili--corner.opti.webp");
     --image-skeleton--corner: url("../images/thelatinbros__skeleton--corner.opti.webp");
 
@@ -265,7 +267,7 @@ dialog {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    gap: var(--spacing-lg);
+    gap: 0;
     margin: 0 auto;
 	overflow-x: hidden;
 }
@@ -273,12 +275,73 @@ dialog {
 /* Header */
 
 .header {
+	--header-height: 85dvh;
+
+	--skull-width: 13dvw;
+	--skull-height: calc(var(--skull-width) * 1.6);
+	--skull-x-pos: 10dvh;
+	--skull-y-pos: 50%;
+
     position: relative;
-    display: block;
+    display: flex;
+	justify-content: center;
+	align-items: center;
     margin: 0 auto;
-    padding: 5rem 0 7rem 0;
-	background: blue;
-	min-height: 80dvh;
+    padding: 0;
+	min-height: var(--header-height);
+	width: 100%;
+	padding-top: 10dvh;
+}
+
+@keyframes bounceAnimation1 {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(1rem); }
+}
+
+@keyframes bounceAnimation2 {
+  0%, 100% { transform: translateY(0) scaleX(-1); }
+  50% { transform: translateY(1rem) scaleX(-1); }
+}
+
+.header::before {
+    content: "";
+    position: absolute;
+    top: var(--skull-x-pos);
+    right: var(--skull-y-pos);
+    width: var(--skull-width);
+    height: var(--skull-height);
+    background-image: var(--image-skull);
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 100;
+
+	animation-name: bounceAnimation1;
+	animation-duration: 5s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+	animation-direction: alternate-reverse;
+	animation-fill-mode: both;
+}
+
+.header::after {
+    content: "";
+    position: absolute;
+	top: var(--skull-x-pos);
+    left: var(--skull-y-pos);
+	width: var(--skull-width);
+	height: var(--skull-height);
+    background-image: var(--image-skull);
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: scaleX(-1);
+    z-index: 100;
+
+	animation-name: bounceAnimation2;
+	animation-duration: 5.2s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+	animation-direction: alternate-reverse;
+	animation-fill-mode: both;
 }
 
 .header__logo--wrapper {
@@ -291,7 +354,7 @@ dialog {
 }
 
 .header__logo {
-    width: 32rem;
+    width: 40dvw;
     height: auto;
 }
 
@@ -381,7 +444,6 @@ dialog {
 	grid-template-rows: 1fr 1fr;
     gap: var(--spacing-md);
 	padding-bottom: var(--spacing-xl);
-	margin-bottom: var(--spacing-md);
 }
 
 .action-button {
@@ -403,10 +465,6 @@ dialog {
     transition: all 0.2s ease-in-out;
 }
 
-.action-button:hover div {
-	background: red;
-}
-
 .action-button .icon {
 	position: absolute;
 	bottom: var(--spacing-sm);
@@ -418,13 +476,17 @@ dialog {
 }
 
 .action-button span {
+	display: inline;
 	color: var(--text-color-secondary--light);
 	line-height: 1;
-	letter-spacing: -1px;
 	text-shadow: 0 0 2rem var(--shadow-color);
 	text-transform: uppercase;
 	font-family: var(--font-family-heading);
 	font-size: calc(var(--font-size-base) * 2.1);
+}
+
+.action-button:hover span{
+	background: var(--text-color-primary);
 }
 
 /* ================================================================
@@ -438,10 +500,10 @@ dialog {
 .hero {
 	--hero-height: 82dvh;
 
-	--chilli-width: 16dvw;
-	--chilli-height: calc(var(--chilli-width) * 1.6);
-	--chilli-x-pos: calc(var(--chilli-height) * 0.17 * -1);
-	--chilli-y-pos: -4rem;
+	--chili-width: 16dvw;
+	--chili-height: calc(var(--chili-width) * 1.6);
+	--chili-x-pos: calc(var(--chili-height) * 0.17 * -1);
+	--chili-y-pos: -4rem;
 
     position: relative;
 	display: flex;
@@ -451,8 +513,8 @@ dialog {
     gap: var(--spacing-sm);
 
 	height: var(--hero-height);
-	min-height: var(--chilli-height);
-	padding: 0 var(--chilli-width);
+	min-height: var(--chili-height);
+	padding: 0 var(--chili-width);
     margin-bottom: calc(var(--spacing-xl) * 2);
 
     text-align: center;
@@ -469,10 +531,10 @@ dialog {
 .hero::before {
     content: "";
     position: absolute;
-    top: var(--chilli-x-pos);
-    left: var(--chilli-y-pos);
-    width: var(--chilli-width);
-    height: var(--chilli-height);
+    top: var(--chili-x-pos);
+    left: var(--chili-y-pos);
+    width: var(--chili-width);
+    height: var(--chili-height);
     background-image: var(--image-chili--corner);
     background-size: contain;
     background-repeat: no-repeat;
@@ -482,10 +544,10 @@ dialog {
 .hero::after {
     content: "";
     position: absolute;
-	top: var(--chilli-x-pos);
-    right: var(--chilli-y-pos);
-	width: var(--chilli-width);
-	height: var(--chilli-height);
+	top: var(--chili-x-pos);
+    right: var(--chili-y-pos);
+	width: var(--chili-width);
+	height: var(--chili-height);
     background-image: var(--image-chili--corner);
     background-size: contain;
     background-repeat: no-repeat;
@@ -646,15 +708,22 @@ dialog {
     align-items: center;
     gap: var(--spacing-xs);
     padding: var(--spacing-sm) 0;
-    background-color: var(--button-color-primary);
     border-bottom: var(--border-size) solid var(--background-color--inverted);
-    color: var(--text-color-secondary);
+    color: var(--text-color-primary);
     font-size: 1.3rem;
     font-weight: 700;
     font-style: italic;
     text-decoration: none;
     text-transform: uppercase;
     transition: all 0.2s ease-in-out;
+	background-image: linear-gradient(140deg,
+		rgba(166, 13, 40, 1) 0%,
+		rgba(254, 139, 114, 1) 40%,
+		rgba(255, 176, 82, 1) 60%,
+		rgba(126, 145, 67, 1) 100%
+	);
+	background-attachment: fixed;
+	background-size: cover;
 	filter: invert();
 }
 
