@@ -57,9 +57,12 @@ html {
     --border-color--inverted: #0146e2;
     --border-color-secondary: #FFB052;
 	--border-color-dark: #000000;
+
     --border-size: 0.25rem;
     --border-size-sm: 3px;
     --border-size-xl: 0.4rem;
+
+	--shadow-color: rgba(169, 12, 43, 0.3);
 
     --image-border-radius: 1.4rem;
     --image-border-radius-sm: 1rem;
@@ -367,6 +370,63 @@ dialog {
     z-index: 100;
 }
 
+/* Footer Action Buttons */
+
+.action-hub {
+	--action-button-size: 20dvw;
+	--action-button-icon-size: 4dvw;
+
+    display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+    gap: var(--spacing-md);
+	padding-bottom: var(--spacing-xl);
+	margin-bottom: var(--spacing-md);
+}
+
+.action-button {
+	position: relative;
+	width: var(--action-button-size);
+	height: calc(var(--action-button-size) / 1.7);
+	border-radius: var(--image-border-radius);
+	padding: var(--spacing-md);
+	border-bottom: var(--border-size-xl) solid var(--border-color-dark);
+	background: rgba(169, 12, 43, 1);
+	background-image: linear-gradient(140deg,
+		rgba(166, 13, 40, 1) 0%,
+		rgba(254, 139, 114, 1) 40%,
+		rgba(255, 176, 82, 1) 60%,
+		rgba(126, 145, 67, 1) 100%
+	);
+	background-attachment: fixed;
+	background-size: cover;
+    transition: all 0.2s ease-in-out;
+}
+
+.action-button:hover div {
+	background: red;
+}
+
+.action-button .icon {
+	position: absolute;
+	bottom: var(--spacing-sm);
+	right: var(--spacing-sm);
+	width: var(--action-button-icon-size);
+	height: var(--action-button-icon-size);
+	opacity: 0.6;
+	z-index: 1;
+}
+
+.action-button span {
+	color: var(--text-color-secondary--light);
+	line-height: 1;
+	letter-spacing: -1px;
+	text-shadow: 0 0 2rem var(--shadow-color);
+	text-transform: uppercase;
+	font-family: var(--font-family-heading);
+	font-size: calc(var(--font-size-base) * 2.1);
+}
+
 /* ================================================================
    HOME PAGE
    ================================================================ */
@@ -607,11 +667,13 @@ dialog {
 	max-width: calc(var(--page-width) - 8rem);
 	margin: 0 auto;
 	margin-bottom: calc(var(--spacing-xl) * 2);
+	opacity: 0.7;
 }
 
 .location-disclaimer__text {
     font-size: 1.4rem;
     font-weight: 400;
+	font-style: italic;
     line-height: 1.5;
 	color: var(--text-color-secondary--light)
 }
@@ -654,9 +716,18 @@ dialog {
 	justify-content: center;
 	align-items: center;
 	gap: var(--spacing-sm);
-	padding: 0;
-	background-color: var(--get-menu-bg);
+	perspective: 1000px;
 	border-radius: var(--image-border-radius);
+	padding: var(--spacing-sm);
+	background: rgba(169, 12, 43, 1);
+	background-image: linear-gradient(140deg,
+		rgba(166, 13, 40, 1) 0%,
+		rgba(254, 139, 114, 1) 40%,
+		rgba(255, 176, 82, 1) 60%,
+		rgba(126, 145, 67, 1) 100%
+	);
+	background-attachment: fixed;
+	background-size: cover;
 }
 
 .get-menu__buttons a {
@@ -668,120 +739,23 @@ dialog {
 	gap: var(--spacing-sm);
 	font-size: 2rem;
 	font-family: var(--font-size-base);
+	text-transform: uppercase;
 	color: var(--text-color-secondary--light);
 	padding: var(--spacing-md);
 	background-color: var(--get-menu-bg);
 	border-radius: var(--image-border-radius);
 	border: var(--border-size) solid var(--get-menu-bg);
-	transition: all 100ms;
-}
-
-.get-menu__buttons a:hover {
-	transform: scale(1.2);
-	color: var(--text-color-secondary--lighter);
-	border: var(--border-size) solid var(--border-color-secondary);
+	transition: all 200ms;
 }
 .get-menu__buttons a#get-sandwiches-menu:hover {
-	border-right: var(--border-size) solid var(--get-menu-bg);
+	color: var(--text-color-secondary--lighter);
+	transform: rotateY(30deg) translateX(1rem) scale(1.05);
 }
 .get-menu__buttons a#get-tacos-menu:hover {
-	border-left: var(--border-size) solid var(--get-menu-bg);
+	color: var(--text-color-secondary--lighter);
+	transform: rotateY(-30deg) translateX(-1rem) scale(1.05);
 }
 
-
-/* --------------------------------
-   Action Buttons
-   -------------------------------- */
-
-.action-hub {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-md);
-    padding: var(--spacing-lg) 0;
-}
-
-.action-button {
-    display: inline-flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: var(--spacing-xs);
-    width: 100%;
-    padding: var(--spacing-md);
-    background-color: var(--button-color-primary);
-    border-bottom: var(--border-size) solid var(--border-color);
-    border-radius: var(--image-border-radius);
-    color: var(--text-color-secondary);
-    font-size: 1.2rem;
-    font-weight: 700;
-    font-style: italic;
-    text-align: center;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: all 0.2s ease-in-out;
-}
-
-.action-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.action-button--menu {
-    padding: var(--spacing-lg) var(--spacing-md);
-    background: linear-gradient(135deg, #ff6b6b 0%, #f8b818 50%, #ff6b6b 100%);
-    font-size: 1.3rem;
-    font-weight: 800;
-}
-
-.action-button--menu:hover {
-    transform: scale(1.02) translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-
-/* --------------------------------
-   Food Waste Section
-   -------------------------------- */
-
-.food-waste {
-    padding: var(--spacing-lg);
-    background-color: var(--background-color);
-    border: var(--border-size) solid var(--border-color-secondary);
-    border-radius: var(--image-border-radius);
-    text-align: center;
-}
-
-.food-waste__title {
-    margin-bottom: var(--spacing-md);
-    font-family: var(--font-family-heading);
-    font-size: 2rem;
-    font-weight: 800;
-    color: var(--text-color-primary);
-    text-transform: uppercase;
-}
-
-.food-waste__cta {
-    display: inline-flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: var(--spacing-xs);
-    padding: var(--spacing-sm) var(--spacing-md);
-    background: linear-gradient(135deg, #d4e157 0%, #f8b818 100%);
-    border-bottom: var(--border-size) solid var(--border-color);
-    border-radius: 0.8rem;
-    color: var(--text-color-secondary);
-    font-size: 1.2rem;
-    font-weight: 700;
-    font-style: italic;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: all 0.2s ease-in-out;
-}
-
-.food-waste__cta:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
 
 /* --------------------------------
    Catering Section
@@ -809,7 +783,7 @@ dialog {
 
 .catering__text {
     margin-bottom: var(--spacing-md);
-    font-size: 1.1rem;
+    font-size: 1.4rem;
     font-weight: 600;
     line-height: 1.6;
 }
