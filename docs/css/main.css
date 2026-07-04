@@ -256,7 +256,7 @@ dialog {
 
 
 /* ================================================================
-   LAYOUT
+   MAIN TEMPLATE
    ================================================================ */
 
 /* Main Container */
@@ -295,12 +295,11 @@ dialog {
 
 @keyframes bounceAnimation1 {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(1rem); }
+  50% { transform: translateY(0.8rem); }
 }
-
 @keyframes bounceAnimation2 {
   0%, 100% { transform: translateY(0) scaleX(-1); }
-  50% { transform: translateY(1rem) scaleX(-1); }
+  50% { transform: translateY(0.75rem) scaleX(-1); }
 }
 
 .header::before {
@@ -327,7 +326,7 @@ dialog {
     content: "";
     position: absolute;
 	top: var(--skull-x-pos);
-    left: var(--skull-y-pos);
+    left: calc(var(--skull-y-pos) - 1rem);
 	width: var(--skull-width);
 	height: var(--skull-height);
     background-image: var(--image-skull);
@@ -489,13 +488,58 @@ dialog {
 	background: var(--text-color-primary);
 }
 
+/* Footer Catering Section */
+
+.catering {
+    position: relative;
+    padding: var(--spacing-xl) 8dvw;
+    background-color: var(--background-color);
+    border: var(--border-size-xl) solid var(--border-color-dark);
+	border-top: none;
+    border-radius: var(--image-border-radius);
+    text-align: center;
+    overflow: hidden;
+}
+
+.catering__title {
+    margin-bottom: var(--spacing-md);
+    font-family: var(--font-family-heading);
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--text-color-primary);
+    text-transform: uppercase;
+}
+
+.catering__text {
+    margin-bottom: var(--spacing-md);
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.6;
+}
+
+.catering__email {
+    margin-top: var(--spacing-sm);
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.catering__email a {
+    color: var(--text-color-secondary);
+    text-decoration: none;
+    border-bottom: 2px solid var(--text-color-secondary);
+    transition: all 0.2s ease-in-out;
+}
+
+.catering__email a:hover {
+    color: var(--button-color-primary);
+    border-bottom-color: var(--button-color-primary);
+}
+
 /* ================================================================
-   HOME PAGE
+   HOME TEMPLATE
    ================================================================ */
 
-/* --------------------------------
-   Hero Section
-   -------------------------------- */
+/* Hero Section */
 
 .hero {
 	--hero-height: 82dvh;
@@ -580,9 +624,7 @@ dialog {
     line-height: 1;
 }
 
-/* --------------------------------
-   Location Cards
-   -------------------------------- */
+ /* Location Cards */
 
 .location-cards {
     display: flex;
@@ -823,54 +865,4 @@ dialog {
 .get-menu__buttons a#get-tacos-menu:hover {
 	color: var(--text-color-secondary--lighter);
 	transform: rotateY(-30deg) translateX(-1rem) scale(1.05);
-}
-
-
-/* --------------------------------
-   Catering Section
-   -------------------------------- */
-
-.catering {
-    position: relative;
-    padding: var(--spacing-xl) 8dvw;
-    background-color: var(--background-color);
-    border: var(--border-size-xl) solid var(--border-color-dark);
-	border-top: none;
-    border-radius: var(--image-border-radius);
-    text-align: center;
-    overflow: hidden;
-}
-
-.catering__title {
-    margin-bottom: var(--spacing-md);
-    font-family: var(--font-family-heading);
-    font-size: 2.2rem;
-    font-weight: 800;
-    color: var(--text-color-primary);
-    text-transform: uppercase;
-}
-
-.catering__text {
-    margin-bottom: var(--spacing-md);
-    font-size: 1.4rem;
-    font-weight: 600;
-    line-height: 1.6;
-}
-
-.catering__email {
-    margin-top: var(--spacing-sm);
-    font-size: 1rem;
-    font-weight: 700;
-}
-
-.catering__email a {
-    color: var(--text-color-secondary);
-    text-decoration: none;
-    border-bottom: 2px solid var(--text-color-secondary);
-    transition: all 0.2s ease-in-out;
-}
-
-.catering__email a:hover {
-    color: var(--button-color-primary);
-    border-bottom-color: var(--button-color-primary);
 }
