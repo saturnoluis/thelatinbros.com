@@ -276,13 +276,15 @@ dialog {
 
 .header {
 	--header-height: 85dvh;
+	--header-logo-width: 40dvw;
 
-	--skull-width: 13dvw;
+	--skull-width: 33%;
 	--skull-height: calc(var(--skull-width) * 1.6);
-	--skull-x-pos: 10dvh;
-	--skull-y-pos: 50%;
+	--skull-x-pos: -30%;
+	--skull-y-pos: 48%;
 
-    position: relative;
+	--slogan-font-size: 2.2rem;
+
     display: flex;
 	justify-content: center;
 	align-items: center;
@@ -290,19 +292,55 @@ dialog {
     padding: 0;
 	min-height: var(--header-height);
 	width: 100%;
-	padding-top: 10dvh;
+}
+
+.header__logo--wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.header__logo {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+    position: relative;
+    width: 100%;
+    max-width: var(--header-logo-width);
+    height: auto;
+	transform: translateY(calc(var(--skull-y-pos) / 4));
+	color: var(--text-color-primary);
+}
+
+.header__logo .header__image {
+	display: block;
+	width: 100%;
+}
+
+.header__logo .header__slogan {
+    font-family: var(--font-family-heading);
+    font-size: var(--slogan-font-size);
+    font-weight: 800;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 @keyframes bounceAnimation1 {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(0.8rem); }
 }
+
 @keyframes bounceAnimation2 {
   0%, 100% { transform: translateY(0) scaleX(-1); }
   50% { transform: translateY(0.75rem) scaleX(-1); }
 }
 
-.header::before {
+.header__logo::before {
     content: "";
     position: absolute;
     top: var(--skull-x-pos);
@@ -322,7 +360,7 @@ dialog {
 	animation-fill-mode: both;
 }
 
-.header::after {
+.header__logo::after {
     content: "";
     position: absolute;
 	top: var(--skull-x-pos);
@@ -341,30 +379,6 @@ dialog {
 	animation-iteration-count: infinite;
 	animation-direction: alternate-reverse;
 	animation-fill-mode: both;
-}
-
-.header__logo--wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    max-width: var(--page-width);
-}
-
-.header__logo {
-    width: 40dvw;
-    height: auto;
-}
-
-.header__slogan {
-    font-family: var(--font-family-heading);
-    font-size: 2rem;
-    font-weight: 800;
-    line-height: 1;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
 }
 
 /* Content */
