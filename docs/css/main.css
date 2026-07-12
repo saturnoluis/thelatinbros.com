@@ -476,9 +476,6 @@ dialog {
    ================================================================ */
 
 .footer {
-    /* Component-specific variables */
-    --skeleton-width: 16dvw;
-    --skeleton-y-pos: 4rem;
     --footer-padding-bottom: 5rem;
     --footer-min-height: 20rem;
 
@@ -493,9 +490,13 @@ dialog {
 
 .footer--with-skeletons {
     --skeleton-height: calc(var(--skeleton-width) * 1.6);
-    --skeleton-x-pos: calc(var(--skeleton-height) * 0.17 * -1);
+    --skeleton-width: 16dvw;
 
-    padding: var(--spacing-lg) 0 var(--footer-padding-bottom) 0;
+    --skeleton-x-pos: calc(var(--skeleton-height) * 0.01 * -1);
+    --skeleton-y-pos: 4rem;
+
+    padding: var(--spacing-lg);
+	padding-bottom: var(--footer-padding-bottom);
     min-height: var(--footer-min-height);
 }
 
@@ -530,14 +531,20 @@ dialog {
 
 @media (max-width: 1280px) {
     .footer {
-        --skeleton-width: 14dvw;
+        --skeleton-width: 24dvw;
         --footer-min-height: 16rem;
+    }
+}
+
+@media (max-width: 960px) {
+	.footer {
+        --skeleton-width: 28dvw;
     }
 }
 
 @media (max-width: 768px) {
     .footer {
-        --skeleton-width: 20dvw;
+        --skeleton-width: 30dvw;
         --skeleton-y-pos: 2rem;
         --footer-padding-bottom: 3rem;
         --footer-min-height: 14rem;
@@ -546,7 +553,7 @@ dialog {
 
 @media (max-width: 480px) {
     .footer {
-        --skeleton-width: 25dvw;
+        --skeleton-width: 45dvw;
         --skeleton-y-pos: 1rem;
         --footer-padding-bottom: 2rem;
         --footer-min-height: 12rem;
@@ -726,19 +733,25 @@ dialog {
     border-bottom-color: var(--button-color-primary);
 }
 
+@media (max-width: 960px) {
+    .catering {
+        --catering-padding-x: 12dvw;
+    }
+}
+
 @media (max-width: 768px) {
     .catering {
-        --catering-padding-x: 5dvw;
+        --catering-padding-x: 8dvw;
     }
 }
 
 @media (max-width: 480px) {
     .catering {
-        --catering-padding-x: 4dvw;
+        --catering-padding-x: 10dvw;
     }
 
     .catering__text {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 }
 
@@ -1176,6 +1189,7 @@ dialog {
     align-items: center;
     gap: var(--spacing-md);
     height: var(--get-menu-height);
+	padding: 1rem;
 
     background-image: var(--gradient-overlay), var(--get-menu-background);
     background-size: cover;
@@ -1191,6 +1205,8 @@ dialog {
     color: var(--text-color-secondary--light);
     text-transform: uppercase;
     text-shadow: 0 0 2rem var(--text-color-primary);
+	text-align: center;
+	padding: 0 1rem;
 }
 
 .get-menu__buttons {
@@ -1248,7 +1264,7 @@ dialog {
     }
 
     .get-menu__title {
-        font-size: 3rem;
+        font-size: 4rem;
     }
 
     .get-menu__buttons {
@@ -1267,7 +1283,7 @@ dialog {
     }
 
     .get-menu__title {
-        font-size: 2.2rem;
+        font-size: 3rem;
     }
 
     .get-menu__buttons a {
